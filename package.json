@@ -1,0 +1,72 @@
+{
+  "name": "0aps",
+  "version": "1.0.0",
+  "private": true,
+  "description": "0aps",
+  "author": "0aps",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "format": "prettier --write '{src,test}/**/*.js'",
+    "lint": "eslint '{src,apps,libs,test}/**/*.js'",
+    "lint:fix": "npm run lint -- --fix",
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^4.10.3",
+    "gatsby-plugin-google-analytics": "^4.10.0",
+    "gatsby-plugin-image": "^2.10.1",
+    "gatsby-plugin-manifest": "^4.10.2",
+    "gatsby-plugin-sharp": "^4.10.2",
+    "gatsby-plugin-sitemap": "^5.10.2",
+    "gatsby-source-filesystem": "^4.10.1",
+    "gatsby-source-wordpress": "^6.10.2",
+    "gatsby-transformer-sharp": "^4.10.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.5.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "2.6.0"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "none",
+    "tabWidth": 2,
+    "printWidth": 120
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2020,
+      "ecmaFeatures": {
+        "jsx": true,
+        "experimentalObjectRestSpread": true
+      }
+    },
+    "rules": {
+      "space-before-function-paren": [
+        "error",
+        {
+          "anonymous": "never",
+          "named": "never",
+          "asyncArrow": "always"
+        }
+      ],
+      "eol-last": [
+        "error",
+        "always"
+      ]
+    }
+  }
+}

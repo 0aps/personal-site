@@ -1,0 +1,27 @@
+.section {
+  margin-top: 3rem;
+}
+
+.logo {
+  border-radius: 50%;
+  width: 40%;
+  display: block;
+  margin: 0 auto;
+}
+
+.about {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.links {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  margin-top: 6rem;
+}
+
+.social {
+  width: 36px;
+  height: 36px;
+}

@@ -1,0 +1,56 @@
+.header {
+  font-family: 'Avenir Next', sans-serif;
+  margin: 1% 2%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 400;
+  display: inline;
+}
+
+.container {
+  margin: auto;
+  max-width: 500px;
+  font-family: sans-serif;
+}
+
+.heading {
+  color: rebeccapurple;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+.nav-link-item {
+  padding-right: 3rem;
+}
+
+.nav-link-text {
+  color: black;
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+}
+
+.nav-link-text:hover, .active {
+  border-color: #333;
+  transition: all .3s ease-in-out;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+
+  .header h1 {
+	display: block;
+	text-align: center;
+  }
+
+  .header {
+	display: block
+  }
+
+}
