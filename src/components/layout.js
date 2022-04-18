@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 import { container, header, navLinks, navLinkItem, navLinkText, active, logo } from './layout.module.css';
 
-const Layout = ({ pageTitle, children, uri }) => {
+const Layout = ({ pageTitle, children, uri, max }) => {
   return (
     <>
-      <title>Sin Imaginación {pageTitle}</title>
+      <title>Sin Imaginación {pageTitle ? `- ${pageTitle}` : ''}</title>
       <header className={header}>
         <h1 className={logo}>Ángel Piña Santana</h1>
         <nav>
@@ -38,7 +38,7 @@ const Layout = ({ pageTitle, children, uri }) => {
           </ul>
         </nav>
       </header>
-      <main className={container}>{children}</main>
+      <main className={!max ? container : ''}>{children}</main>
     </>
   );
 };

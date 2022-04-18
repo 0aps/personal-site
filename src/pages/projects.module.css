@@ -1,0 +1,14 @@
+.container {
+  margin: auto;
+  max-width: 90%;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 5px;
+  font-family: sans-serif;
+  padding: 1px 20px 20px;
+}
+
+.project-list {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+}
