@@ -20,10 +20,8 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
 
-      - run: npm ci
+      - run: npm install
       - run: npm run lint
 
   deploy:
@@ -35,9 +33,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
-      - run: npm ci
+      - run: npm install
       - run: npm install -g gatsby-cli
       - run: gatsby build
       - name: Upload repo to DO

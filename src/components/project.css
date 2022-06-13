@@ -1,0 +1,80 @@
+.project-item {
+  font-family: "Lato", sans-serif;
+  width: 300px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 5px;
+  float: left;
+  margin: 10px;
+}
+
+.project-item img {
+  object-fit: scale-down;
+  width: 100%;
+  height: 150px;
+}
+
+.project-item .title {
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.project-item .title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-item .title .expand {
+  float: right;
+  color: #00ADB6;
+  cursor: pointer;
+}
+
+.project-item .body {
+  font-size: 15px;
+  font-weight: 300;
+  padding: 15px 15px 0 15px;
+  border-top: 1px solid #EEE;
+}
+
+.tags {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 300;
+  padding: 0 10px 15px 0;
+}
+
+.tags .tag {
+  display: inline-block;
+  padding: 5px 10px 5px 10px;
+  border-radius: 100px;
+  margin-right: 5px;
+  background: #f4f5f6;
+  color: #393E46;
+  border: 1px solid #bdc3c7;
+}
+
+.project-modal a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-modal .tags {
+  padding: 0;
+  text-align: center;
+  display: block;
+}
+
+@media only screen and (max-width: 910px) {
+  .project-item {
+	width: 100%;
+	margin: 0 0 15px 0;
+  }
+}
+
+.info {
+  font-weight: 400;
+}
+
+.text-center {
+  text-align: center;
+}
