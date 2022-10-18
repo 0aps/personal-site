@@ -1,46 +1,14 @@
 import * as React from 'react';
 import Layout from '../components/layout';
-import Project from '../components/project';
+import CategoryProject from '../components/category_project';
 import { graphql, useStaticQuery } from 'gatsby';
-import { container, projectList, search, header } from './projects.module.css';
+import { container, search, header } from './projects.module.css';
 
 const ProjectsPage = (props) => {
   const [searchProject, setSearch] = React.useState('');
-  const data = useStaticQuery(graphql`
-    query MyQuery {
-      allWpPage {
-        nodes {
-          projects {
-            url
-            image1 {
-              mediaItemUrl
-            }
-            image2 {
-              mediaItemUrl
-            }
-            image3 {
-              mediaItemUrl
-            }
-            image4 {
-              mediaItemUrl
-            }
-            image5 {
-              mediaItemUrl
-            }
-            tags {
-              name
-            }
-          }
-          content
-          title
-        }
-      }
-    }
-  `);
+  const data = useProjectData();
+  const items = getProjectItems(data);
 
-  const items = data.allWpPage.nodes.filter(
-    (node) => searchProject === '' || node.title.toLowerCase().search(searchProject.toLowerCase()) > -1
-  );
   return (
     <Layout pageTitle="Projects" {...props} max={true}>
       <section className={container}>
@@ -56,14 +24,60 @@ const ProjectsPage = (props) => {
           onChange={(e) => setSearch(e.target.value)}
         />
         <hr />
-        <div className={projectList}>
-          {items.map((node, index) => {
-            return <Project key={index} project={node} />;
-          })}
-        </div>
+        {items.map(([key, value], index) => {
+          return <CategoryProject key={index} category={key} projects={value} />;
+        })}
       </section>
     </Layout>
   );
+
+  function getProjectItems(data) {
+    return Object.entries(
+      data.allWpPage.nodes
+        .filter((node) => searchProject === '' || node.title.toLowerCase().search(searchProject.toLowerCase()) > -1)
+        .reverse()
+        .reduce((a, b) => {
+          const category = b.projects.category;
+          a[category] = category in a ? [...a[category], b] : [b];
+          return a;
+        }, {})
+    );
+  }
+
+  function useProjectData() {
+    return useStaticQuery(graphql`
+      query MyQuery {
+        allWpPage {
+          nodes {
+            projects {
+              url
+              category
+              image1 {
+                mediaItemUrl
+              }
+              image2 {
+                mediaItemUrl
+              }
+              image3 {
+                mediaItemUrl
+              }
+              image4 {
+                mediaItemUrl
+              }
+              image5 {
+                mediaItemUrl
+              }
+              tags {
+                name
+              }
+            }
+            content
+            title
+          }
+        }
+      }
+    `);
+  }
 };
 
 export default ProjectsPage;
